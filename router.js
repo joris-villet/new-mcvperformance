@@ -6,6 +6,7 @@ import Reprogrammation from '~/pages/Reprogrammation'
 import Model from '~/pages/Model'
 import Year from '~/pages/Year'
 import Engine from '~/pages/Engine'
+import Power from '~/pages/Power'
 
 Vue.use(Router)
 
@@ -37,6 +38,11 @@ export function createRouter () {
         name: 'Engine',
         path: '/reprogrammation/:brandId/:brandName/:modelId/:modelName/:yearId/:yearName',
         component: Engine
+      },
+      {
+        name: 'Power',
+        path: '/reprogrammation/:brandId/:brandName/:modelId/:modelName/:yearId/:yearName/:engineId/:engineName',
+        component: Power
       }
     ]
   })

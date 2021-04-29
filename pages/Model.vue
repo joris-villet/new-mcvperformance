@@ -1,7 +1,8 @@
 <template>
   <div>
     <Navbar />
-    <Container>
+    <Container class="grid">
+      <!-- MODELS -->
       <div class="container-module">
         <TitleModule
           :title="brand"
@@ -54,7 +55,15 @@ export default {
 </script>
 
 <style scoped>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 20px;
+    }
+
    .container-module {
-      width: calc(100% / 3)
+      border: 1px solid rgb(207, 207, 207);
+      border-radius: 5px;
+      width: 100%;
    }
 </style>
