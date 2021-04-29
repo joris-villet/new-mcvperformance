@@ -2,52 +2,47 @@
   <div>
     <Navbar />
     <Container class="grid">
-      <!-- MODELS -->
+      <!----------------------- MODELS --------------------------->
       <div class="container-module">
         <TitleModule
           :title="brandName"
           :img-name="imgName"
         />
         <Module
-          v-for="model in models"
-          :key="model.id"
-          :model-name="model.name"
-          :to="{
-            name: 'Year',
-            params: { modelId: model.id, modelName: model.name }
-          }"
+          :models="true"
+          :items="models"
         />
       </div>
-      <!-- Years -->
+      <!----------------------- YEARS --------------------------->
       <div class="container-module">
         <TitleModule
           :title="modelName"
           :img-name="imgName"
         />
         <Module
-          v-for="year in years"
-          :key="year.id"
-          :model-name="year.name"
-          :to="{
-            name: 'Engine',
-            params: { yearId: year.id, yearName: year.name }
-          }"
+          :years="true"
+          :items="years"
         />
       </div>
-      <!-- EngineEssences -->
+      <!----------------------- ENGINES --------------------------->
       <div class="container-module">
         <TitleModule
           :title="yearName"
           :img-name="imgName"
         />
+        <h3 class="carburant">
+          essence
+        </h3>
         <Module
-          v-for="engine in engineEssences"
-          :key="engine.id"
-          :model-name="engine.name"
-          :to="{
-            name: 'Power',
-            params: { engineId: engine.id, engineName: engine.name }
-          }"
+          :engine-essences="true"
+          :items="engineEssences"
+        />
+        <h3 class="carburant">
+          diesel
+        </h3>
+        <Module
+          :engine-diesels="true"
+          :items="engineDiesels"
         />
       </div>
     </Container>
@@ -56,7 +51,7 @@
 
 <script>
 export default {
-  name: 'Year',
+  name: 'Engine',
   data () {
     return {
       imgName: '',
@@ -66,13 +61,14 @@ export default {
       models: [],
       years: [],
       engineEssences: [],
+      engineDiesels: [],
       base_url: 'http://localhost:1337'
     }
   },
   mounted () {
     this.getModels()
     this.getYears()
-    this.getEngineEssences()
+    this.getEngines()
   },
   methods: {
     async getModels () {
@@ -98,7 +94,7 @@ export default {
         console.log(err)
       }
     },
-    async getEngineEssences () {
+    async getEngines () {
       try {
         const yearId = parseInt(this.$route.params.yearId, 10)
         const response = await fetch(`${this.base_url}/years/${yearId}`)
@@ -106,6 +102,7 @@ export default {
         console.log(data)
         this.yearName = data.name
         this.engineEssences = data.engine_essences
+        this.engineDiesels = data.engine_diesels
       } catch (err) {
         console.log(err)
       }
@@ -125,5 +122,9 @@ export default {
     border: 1px solid rgb(207, 207, 207);
     border-radius: 5px;
     width: 100%;
+   }
+
+   .carburant {
+     margin: 0;
    }
 </style>

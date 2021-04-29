@@ -9,13 +9,8 @@
           :img-name="imgName"
         />
         <Module
-          v-for="model in models"
-          :key="model.id"
-          :model-name="model.name"
-          :to="{
-            name: 'Year',
-            params: { modelId: model.id, modelName: model.name }
-          }"
+          :models="true"
+          :items="models"
         />
       </div>
       <!-- Years -->
@@ -25,13 +20,8 @@
           :img-name="imgName"
         />
         <Module
-          v-for="year in years"
-          :key="year.id"
-          :model-name="year.name"
-          :to="{
-            name: 'Engine',
-            params: { yearId: year.id, yearName: year.name }
-          }"
+          :years="true"
+          :items="years"
         />
       </div>
     </Container>

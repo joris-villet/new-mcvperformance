@@ -9,13 +9,8 @@
           :img-name="imgName"
         />
         <Module
-          v-for="model in models"
-          :key="model.id"
-          :model-name="model.name"
-          :to="{
-            name: 'Year',
-            params: { modelId: model.id, modelName: model.name }
-          }"
+          :models="true"
+          :items="models"
         />
       </div>
     </Container>
