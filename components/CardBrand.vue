@@ -6,7 +6,7 @@
           <NuxtLink
             :to="{
               name: 'Model',
-              params: { brandId: brand.id, brandName: brand.name },
+              params: { brandId: brand.id, brandName: brand.name.toLowerCase() },
             }"
           >
             <img

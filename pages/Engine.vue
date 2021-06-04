@@ -1,10 +1,12 @@
 <template>
-  <div>
+  <MainCard>
+    <Header />
     <Navbar />
     <Container class="grid">
       <!----------------------- MODELS --------------------------->
       <div class="container-module">
         <TitleModule
+          :module="moduleBrand"
           :title="brandName"
           :img-name="imgName"
         />
@@ -16,6 +18,7 @@
       <!----------------------- YEARS --------------------------->
       <div class="container-module">
         <TitleModule
+          :module="moduleYear"
           :title="modelName"
           :img-name="imgName"
         />
@@ -27,6 +30,7 @@
       <!----------------------- ENGINES --------------------------->
       <div class="container-module">
         <TitleModule
+          :module="moduleEngine"
           :title="yearName"
           :img-name="imgName"
         />
@@ -46,7 +50,7 @@
         />
       </div>
     </Container>
-  </div>
+  </MainCard>
 </template>
 
 <script>
@@ -54,6 +58,9 @@ export default {
   name: 'Engine',
   data () {
     return {
+      moduleBrand: 'Choississez un modèle',
+      moduleYear: 'Choississez une année',
+      moduleEngine: 'Choississez une motorisation',
       imgName: '',
       brandName: '',
       modelName: '',
@@ -113,18 +120,4 @@ export default {
 
 <style scoped>
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 20px;
-  }
-  .container-module {
-    border: 1px solid rgb(207, 207, 207);
-    border-radius: 5px;
-    width: 100%;
-   }
-
-   .carburant {
-     margin: 0;
-   }
 </style>

@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <MainCard>
+    <Header />
     <Navbar />
     <h2>reprogrammation</h2>
     <Container>
       <CardBrand :brands="brands" />
     </Container>
-  </div>
+  </MainCard>
 </template>
 
 <script>

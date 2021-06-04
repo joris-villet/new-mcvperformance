@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <MainCard>
+    <Header />
     <Navbar />
     <Container class="grid">
-      <!-- MODELS -->
+      <!----------------------- MODELS --------------------------->
       <div class="container-module">
         <TitleModule
-          :title="brand"
+          :module="moduleBrand"
+          :title="brandName"
           :img-name="imgName"
         />
         <Module
@@ -13,9 +15,10 @@
           :items="models"
         />
       </div>
-      <!-- Years -->
+      <!----------------------- YEARS --------------------------->
       <div class="container-module">
         <TitleModule
+          :module="moduleYear"
           :title="modelName"
           :img-name="imgName"
         />
@@ -25,7 +28,7 @@
         />
       </div>
     </Container>
-  </div>
+  </MainCard>
 </template>
 
 <script>
@@ -33,11 +36,13 @@ export default {
   name: 'Year',
   data () {
     return {
+      moduleBrand: 'Choississez un modèle',
+      moduleYear: 'Choississez une année',
       imgName: '',
+      brandName: '',
       modelName: '',
       models: [],
       years: [],
-      brand: '',
       base_url: 'http://localhost:1337'
     }
   },
@@ -51,9 +56,8 @@ export default {
         const brandId = parseInt(this.$route.params.brandId, 10)
         const response = await fetch(`${this.base_url}/brands/${brandId}`)
         const data = await response.json()
-        console.log(data.name)
         this.imgName = data.name
-        this.brand = data.name
+        this.brandName = data.name
         this.models = data.models
       } catch (err) {
         console.log(err)
@@ -64,7 +68,7 @@ export default {
         const modelId = parseInt(this.$route.params.modelId, 10)
         const response = await fetch(`${this.base_url}/models/${modelId}`)
         const data = await response.json()
-        console.log(data)
+        console.log(data.years)
         this.modelName = data.name
         this.years = data.years
       } catch (err) {
@@ -78,14 +82,4 @@ export default {
 
 <style scoped>
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 20px;
-  }
-  .container-module {
-    border: 1px solid rgb(207, 207, 207);
-    border-radius: 5px;
-    width: 100%;
-   }
 </style>
