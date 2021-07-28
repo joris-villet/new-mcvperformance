@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div v-if="items.length === 0">
-      <p class="link cellule">
+    <div v-if="!items.length">
+      <p class="cellule">
         En développement...
       </p>
     </div>
@@ -13,7 +13,10 @@
               class="link"
               :to="{
                 name: 'Year',
-                params: { modelId: item.id, modelName: item.name.toLowerCase() }
+                params: {
+                  modelId: item.id,
+                  modelName: item.name.toLowerCase(),
+                },
               }"
             >
               {{ item.name }}
@@ -24,7 +27,14 @@
               class="link"
               :to="{
                 name: 'Engine',
-                params: { yearId: item.id, yearName: item.name.split(' > ').join('-').split(' >...').join('->...') }
+                params: {
+                  yearId: item.id,
+                  yearName: item.name
+                    .split(' > ')
+                    .join('-')
+                    .split(' >...')
+                    .join('->...'),
+                },
               }"
             >
               {{ item.name }}
@@ -35,7 +45,10 @@
               class="link"
               :to="{
                 name: 'Power',
-                params: { engineId: item.id, engineName: item.name.toLowerCase().split(' ').join('-') }
+                params: {
+                  engineId: item.id,
+                  engineName: item.name.toLowerCase().split(' ').join('-'),
+                },
               }"
             >
               {{ item.name }}
@@ -46,7 +59,10 @@
               class="link"
               :to="{
                 name: 'Power',
-                params: { engineId: item.id, engineName: item.name.toLowerCase().split(' ').join('-') }
+                params: {
+                  engineId: item.id,
+                  engineName: item.name.toLowerCase().split(' ').join('-'),
+                },
               }"
             >
               {{ item.name }}
@@ -87,29 +103,77 @@ export default {
 </script>
 
 <style scoped>
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
 
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-
-  }
-
-  .cellule {
+/* .cellule {
     border-top: 1px solid rgb(206, 206, 206);
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     background: rgb(136,145,164);
     background: linear-gradient(90deg, rgba(136,145,164,1) 0%, rgba(63,76,107,1) 100%);
     transform: translateY(-5px);
-  }
+  } */
 
-  .link {
-    display: block;
-    text-align: center;
-    width: 100%;
-    padding: 0.3rem 0;
-    text-decoration: none;
-    color: #f1f1f1;
-  }
+.cellule {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 0.9rem;
+  height: 25px;
+  line-height: 25px;
+  width: 95%;
+  outline: none;
+  color: #cecece;
+  font-weight: bold;
+  text-decoration: none;
+  /* background-color: #252525;
+  background-image: radial-gradient(circle, #343434 20%, transparent 10%),
+    radial-gradient(circle, #343434 20%, transparent 10%);
+  background-size: 10px 10px;
+  background-position: 0 0, 50px 50px; */
+  border-bottom: 1px dotted #737373;
+}
+
+/* .cellule:last-child {
+  border-bottom: none;
+} */
+
+.cellule:hover {
+  text-decoration: none;
+  border-bottom: 1px dotted rgb(57, 146, 248);
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 25px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-decoration: none;
+  color: rgb(199, 199, 199);
+}
+
+.link:hover {
+  color: rgb(57, 146, 248);
+}
+
+/* .module-content {
+  display: flex;
+  flex-direction: column;
+  height: min-content;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0 0 0;
+  border: 1px solid rgb(196, 196, 196);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top: none;
+  background: #343434;
+} */
 </style>

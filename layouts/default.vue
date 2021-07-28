@@ -5,17 +5,9 @@
 </template>
 
 <style>
-
 html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -32,4 +24,12 @@ html {
   margin: 0;
 }
 
+/* .container-module {
+  background-color: #252525;
+  background-image: radial-gradient(circle, #343434 20%, transparent 10%),
+    radial-gradient(circle, #343434 20%, transparent 10%);
+  background-size: 10px 10px;
+  background-position: 0 0, 50px 50px;
+  border-radius: 5px;
+} */
 </style>

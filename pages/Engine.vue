@@ -68,8 +68,7 @@ export default {
       models: [],
       years: [],
       engineEssences: [],
-      engineDiesels: [],
-      base_url: 'http://localhost:1337'
+      engineDiesels: []
     }
   },
   mounted () {
@@ -81,7 +80,7 @@ export default {
     async getModels () {
       try {
         const brandId = parseInt(this.$route.params.brandId, 10)
-        const response = await fetch(`${this.base_url}/brands/${brandId}`)
+        const response = await fetch(`${this.$store.state.base_url}/brands/${brandId}`)
         const data = await response.json()
         this.imgName = data.name
         this.brandName = data.name
@@ -93,7 +92,7 @@ export default {
     async getYears () {
       try {
         const modelId = parseInt(this.$route.params.modelId, 10)
-        const response = await fetch(`${this.base_url}/models/${modelId}`)
+        const response = await fetch(`${this.$store.state.base_url}/models/${modelId}`)
         const data = await response.json()
         this.modelName = data.name
         this.years = data.years
@@ -104,7 +103,7 @@ export default {
     async getEngines () {
       try {
         const yearId = parseInt(this.$route.params.yearId, 10)
-        const response = await fetch(`${this.base_url}/years/${yearId}`)
+        const response = await fetch(`${this.$store.state.base_url}/years/${yearId}`)
         const data = await response.json()
         console.log(data)
         this.yearName = data.name

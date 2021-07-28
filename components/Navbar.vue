@@ -92,10 +92,10 @@ nav ul li .link::after {
   bottom: 0;
   width: 100%;
   position: absolute;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   z-index: -1;
   /* background: rgb(57, 146, 248); */
   border-top: 2px solid rgb(57, 146, 248);

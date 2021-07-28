@@ -1,4 +1,9 @@
 export default {
+
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:1337'
+  },
+
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 

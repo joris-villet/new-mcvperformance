@@ -14,8 +14,7 @@ export default {
   name: 'Reprogrammation',
   data () {
     return {
-      brands: [],
-      base_url: 'http://localhost:1337'
+      brands: []
     }
   },
   mounted () {
@@ -24,7 +23,7 @@ export default {
   methods: {
     async getAllBrands () {
       try {
-        const response = await fetch(`${this.base_url}/brands`)
+        const response = await fetch(`${this.$store.state.base_url}/brands?_sort=name:ASC`)
         const data = await response.json()
         this.brands = data
       } catch (err) {

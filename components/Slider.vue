@@ -1,40 +1,42 @@
 <template>
   <div class="container">
-    <!-- <div v-for="(item, index) in makeSlider" :key="index" class="slider">
-      <p class="info">
-        {{ item.info }}
-      </p>
-    </div> -->
-    <div class="rack" :class="{move: isActive}">
+    <!-- <div class="rack" :class="{move: isActive}">
       <div v-for="(image, index) in images" :key="index">
-        <img :src="base_url+image.url" :alt="'photo '+image.name" class="images">
+        <img :src="store.state.base_url+image.url" :alt="'photo '+image.name" class="images">
+      </div>
+    </div> -->
+
+    <div class="rack" :class="{move: isActive}">
+      <div>
+        <img :src="CarImage" alt="image car us" class="images">
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import CarImage from '../assets/img/car_us.jpg'
+
 export default {
   name: 'Slider',
   data () {
     return {
+      CarImage,
       items: [],
       images: [],
-      base_url: 'http://localhost:1337',
       time: 0,
       isActive: false
     }
   },
   created () {
-    this.getData()
-    this.moveRack()
+    this.getImages()
+    // this.moveRack()
   },
   methods: {
-    async getData () {
+    async getImages () {
       try {
-        const response = await fetch(`${this.base_url}/sliders`)
-        const data = await response.json()
-        this.items = data
+        const { data } = await fetch(`${this.store.state.base_url}/sliders`)
+        console.log(data)
         data.forEach((prop) => {
           this.images.push(...prop.image)
         })
@@ -44,6 +46,7 @@ export default {
     },
     moveRack () {
       setInterval(() => {
+        this.isActive = true
         this.time++
       }, 2000)
     }
@@ -65,9 +68,8 @@ export default {
 
 .rack {
   display: flex;
-  border: 2px solid greenyellow;
+  /*border: 2px solid greenyellow;*/
   width: 100%;
-  transform: translate();
 }
 
 .move {

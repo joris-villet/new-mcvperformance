@@ -27,8 +27,7 @@ export default {
       moduleBrand: 'Choississez un modèle',
       imgName: '',
       brandName: '',
-      models: [],
-      base_url: 'http://localhost:1337'
+      models: []
     }
   },
   mounted () {
@@ -38,7 +37,7 @@ export default {
     async getAllModels () {
       try {
         const brandId = parseInt(this.$route.params.brandId, 10)
-        const response = await fetch(`${this.base_url}/brands/${brandId}`)
+        const response = await fetch(`${this.$store.state.base_url}/brands/${brandId}?_sort=name:ASC`)
         const data = await response.json()
         console.log(data.name)
         this.imgName = data.name

@@ -42,8 +42,7 @@ export default {
       brandName: '',
       modelName: '',
       models: [],
-      years: [],
-      base_url: 'http://localhost:1337'
+      years: []
     }
   },
   mounted () {
@@ -54,7 +53,7 @@ export default {
     async getAllModels () {
       try {
         const brandId = parseInt(this.$route.params.brandId, 10)
-        const response = await fetch(`${this.base_url}/brands/${brandId}`)
+        const response = await fetch(`${this.$store.state.base_url}/brands/${brandId}`)
         const data = await response.json()
         this.imgName = data.name
         this.brandName = data.name
@@ -66,7 +65,7 @@ export default {
     async getAllYears () {
       try {
         const modelId = parseInt(this.$route.params.modelId, 10)
-        const response = await fetch(`${this.base_url}/models/${modelId}`)
+        const response = await fetch(`${this.$store.state.base_url}/models/${modelId}`)
         const data = await response.json()
         console.log(data.years)
         this.modelName = data.name
