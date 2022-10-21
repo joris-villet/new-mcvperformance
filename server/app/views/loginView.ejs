@@ -1,0 +1,106 @@
+<%- include('partials/head', { title: title }) %>
+<body>
+
+  <section class="container__login">
+
+    <div class="form__login">
+
+      <form action="/admin/login" method="POST">
+
+        <h2 class="form__title">Connexion dashboard</h2>
+
+        <label class="form__label">Email:
+          <input class="form__input" name="email" type="text">
+        </label>
+      
+
+        <label class="form__label">Mot de passe:
+          <input class="form__input" name="password" type="password">
+        </label>
+    
+        <% if (locals.error) { %>
+          <p class="form__error"><%= error %> </p>
+        <% } %>
+        <button type="submit" class="form__btn">Valider</button>
+      </form>
+  
+    </div>
+
+  </section>
+
+</body>
+</html>
+
+
+<style>
+  body {
+    background: #F6F6F6;
+  }
+
+  .container__login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .form__title {
+    color: #5189FB;
+    font-weight: bold;
+    margin: 2rem auto;
+  }
+
+  .form__login {
+    width: 430px;
+    height: 460px;
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form__login form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .form__label {
+    width: 80%;
+    margin: 0 auto;
+    color: #578DFB;
+    font-weight: bold;
+  }
+
+  .form__input {
+    width: 100%;
+    padding: 1rem 0 0.2rem .3rem;
+    border: 1px solid #D1D1D1;
+    margin-top: .3rem;
+    border-radius: 2px;
+  }
+
+  .form__btn {
+    background: rgb(87,141,251);
+    background: linear-gradient(101deg, rgba(87,141,251,1) 0%, rgba(14,91,246,1) 82%); 
+    padding: .7rem 0;
+    margin: 1.5rem auto;
+    width: 80%;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 6px #0000002e;
+    cursor: pointer;
+  }
+
+  .form__error {
+    margin: 0 auto;
+    color: #f94848;
+    font-style: italic;
+  }
+
+</style>

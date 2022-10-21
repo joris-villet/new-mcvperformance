@@ -1,0 +1,85 @@
+<%- include('partials/head', { title: title }) %>
+  
+<body>
+    <div class="main-card">
+        <%- include ('partials/header') %> 
+        <%- include ('partials/nav') %> 
+        <div class="bg">
+            <main>
+                <div class="slider">
+                    <div class="displayCarName">
+                        <img 
+                          class="logo" 
+                          src="/img/logo-<%= brand.name %>.png" 
+                          alt="Logo de la marque <%= brand.name %>" 
+                          width="<%= brand.width %>" 
+                          height="auto"
+                        >
+                        <h2 class="your-car"><%= engine.name %></h2>
+                    </div>
+                </div>
+        
+              
+                    <div id="recap">
+                        <a href="/reprogrammation">Marques</a>
+                        <i class="fas fa-angle-double-right arrow"></i>
+                        <a href="/reprogrammation/<%= brand.id %>/<%= brand.name %>"> <%= brand.name %> </a>
+                        <i class="fas fa-angle-double-right arrow"></i>
+                        <a href="/reprogrammation/<%= brand.id %>/<%= brand.name %>/<%= model.id %>/<%= model.name.split(" / ").join("-").split(" ").join("-").split("/").join("-") %>"> <%= model.name %> </a>
+                        <i class="fas fa-angle-double-right arrow"></i>
+                        <a href="/reprogrammation/<%= brand.id %>/<%= brand.name %>/<%= model.id %>/<%= model.name.split(" / ").join("-").split(" ").join("-").split("/").join("-") %>/<%= year.id %>/<%= year.name.split("/").join("-").split(" > ").join("-").split(" ").join("-").split('->...').join('') %>"> <%= year.name %> </a>
+                        <i class="fas fa-angle-double-right arrow"></i>
+                    </div>
+                    
+                    <section class="bg bg-stage">
+
+                        <article class="card">
+                            <div class="container-stage">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td id="stage1" class="cell_stage1">Stage 1</td>
+                                            <td class="info">Origine</td>
+                                            <td class="info">Modifié</td>
+                                            <td class="info">Différence</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="info col_one">Puissance</td>
+                                            <td class="ori-puissance"><%= power.puissance_ori %> ch</td>
+                                            <td class="modif modif-puissance"><%= power.puissance_stage %> ch</td>
+                                            <td class="modif diff-puissance"><%= power.puissance_stage - power.puissance_ori %> ch</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="info col_one">Couple</td>
+                                            <td class="ori-couple"><%= power.couple_ori %> Nm</td>
+                                            <td class="modif modif-couple"><%= power.couple_stage %> Nm</td>
+                                            <td class="modif diff-couple"><%= power.couple_stage - power.couple_ori %> Nm</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="modif price" colspan="4"><%= power.price %></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> 
+
+
+                            <%- include ('partials/infoReprog') %> 
+                        </article>
+
+                        <%- include ('partials/offres') %>
+                        <%- include ('partials/modal_rdv') %>  
+                        
+                    </section> <!-- FIN SECTION -->                 
+        </main>
+    </div>
+    <%- include ('partials/footer') %> 
+</div>
+
+</body>
+</html>
+
+
+
+
+
+

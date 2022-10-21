@@ -1,0 +1,135 @@
+<div class="displayModal">
+  <div class="overlay">
+    <form class="form">
+      <span class="modal-response"></span>
+      <i class="close-modal fa-solid fa-circle-xmark"></i>
+      <label for="car">Votre voiture</label>
+      <input class="field" name="car" id="car" type="text" value="">
+      <label for="email">Votre email</label>
+      <input class="field" name="email" id="email" type="text" value="">
+      <label for="message">Votre message</label>
+      <textarea class="field" name="message" id="message" cols="40" rows="5"></textarea>
+      <button class="btn-rdv">Envoyer</button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .displayModal {
+    display: none;
+  }
+
+  .overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: #0f0f0fdb;
+    z-index: 9;
+    top: 0;
+    left: 0;
+  }
+
+  .fa-circle-xmark {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    background: white;
+    color: #f07676;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .spinner {
+    animation: 2s linear 0s infinite running loading;
+  }
+
+  @keyframes loading {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .modal-response {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #41fb3b;
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+
+  .form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgb(98,132,255);
+    background: linear-gradient(162deg, rgba(98,132,255,1) 0%, rgba(5,6,23,1) 100%); 
+    padding: 1rem;
+    width: 400px;
+    height: 450px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(16, 17, 19, 0.23);
+  }
+
+  .form label {
+    margin: .2rem auto;
+    width: 300px;
+    color: #b3adad;
+  }
+
+  .form input {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding-left: .5rem;
+    background: #DDDDDD;
+    outline: none;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    color: #616161;
+    font-weight: bold;
+  }
+
+  .btn-rdv{
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: 300px;
+    height: 40px;
+    background: rgb(126,170,255);
+    background: linear-gradient(171deg, rgba(126,170,255,1) 0%, rgba(13,93,248,1) 100%); 
+    border: 1px solid #333;
+    border-radius: 30px;
+    box-shadow: 1px 4px 10px #00000082;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+
+  .form textarea {
+    margin: 0 auto;
+    padding-left: .5rem;
+    max-width: 300px;
+    max-height: 130px;
+    width: 300px;
+    height: 130px;
+    outline: none;
+    background: #DDDDDD;
+    color: #616161;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+  }
+</style>

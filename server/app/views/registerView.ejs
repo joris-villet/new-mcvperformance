@@ -1,0 +1,61 @@
+<%- include('partials/head', { title: title }) %>
+<body>
+
+  <section class="container__register">
+
+    <div class="form__register">
+
+      <form action="/admin/register" method="POST">
+        <div class="col-auto">
+          <label class="form-label">
+            <input class="form-control" name="email" type="text" placeholder="email">
+          </label>
+        </div>
+        <div class="col-auto">
+          <label class="form-label">
+            <input class="form-control" name="password" type="password" placeholder="mot de passe">
+          </label>
+        </div>
+        <div class="col-auto">
+          <label class="form-label">
+            <input class="form-control" name="repeatPassword" type="password" placeholder="confirmer le mot de passe">
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">s'enregistrer</button>
+      </form>
+
+      <div>
+        <a href="/admin/login" class="btn btn-secondary">Se connecter</a>
+        <a href="/admin/register" class="btn btn-secondary">S'enregistrer</a>
+      </div>
+
+      <% if (locals.error) { %>
+        <p><%= error %></p>
+      <% } %>
+
+    </div>
+
+
+
+  </section>
+
+</body>
+</html>
+
+
+<style>
+
+body {
+  background: rgb(241, 241, 241);
+}
+.container__register {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__register {
+  border: 2px solid red;
+}
+</style>

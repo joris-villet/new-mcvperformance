@@ -1,0 +1,43 @@
+
+<div class="module">
+  <h2 class="title-engine">Choississez une motorisation</h2>
+  <div class="module-content">
+    <div class="info_model cellule">
+      <div class="logo">
+        <img 
+        src="/img/logo-<%= brand.name %>.png" 
+        alt="Logo de la marque <%= brand.name %>" 
+        width="<%= brand.width %>" 
+        height="auto"
+        >
+      </div>
+      <h2 class="info_title_model"><%= year.name %></h2>
+    </div>
+    <% if (enginesEss.length !== 0) { %>
+  
+        <p class="cellule carburant">Essence</p>
+   
+      <% for(let engine of enginesEss) { %>
+        <a 
+          class="cellule" 
+          href="/reprogrammation/<%=brand.id%>/<%=brand.name%>/<%=model.id%>/<%=model.name.split(" / ").join("-").split(" ").join("-").split("/").join("-")%>/<%=year.id%>/<%=year.name.split("/").join("-").split(" > ").join("-").split(" ").join("-").split("->...").join("")%>/<%=engine.id%>/<%=engine.name.split(' ').join('')%>/<%=engine.fuel%>">
+            <%= engine.name %> 
+        </a>
+      <% } %>
+    <% } %>
+    
+    <% if (enginesDiesel.length !== 0) { %>
+  
+        <p class="cellule carburant">Diesel</p>    
+      
+      <% for(let engine of enginesDiesel) { %>
+        <a 
+          class="cellule" 
+          href="/reprogrammation/<%=brand.id%>/<%=brand.name%>/<%=model.id%>/<%=model.name.split(" / ").join("-").split(" ").join("-").split("/").join("-")%>/<%=year.id%>/<%=year.name.split("/").join("-").split(" > ").join("-").split(" ").join("-").split("->...").join("") %>/<%=engine.id%>/<%=engine.name.split(' ').join('')%>/<%=engine.fuel%>  ">
+          <%= engine.name %> 
+        </a>
+      <% } %>
+    <% } %>
+  </div>
+</div>
+

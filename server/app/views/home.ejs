@@ -1,0 +1,67 @@
+<%- include('partials/head', { title: title }) %>
+
+  
+  <body>
+	  <div class="main-card container m-auto">
+			<%- include ('partials/header') %>
+      <%- include ('partials/nav') %>
+		  <div class="slider">
+				
+				<h1 class="title"></h1>
+
+
+				<%- include ('partials/slider') %>
+					
+			</div>
+		  <div class="bg">
+			  <main>
+				  <section class="section-one">
+					  <div class="container">
+							<p class="content-main"> 
+								De nos jours, tout les véhicules sont gérés par l’électronique !<br>
+								Un ensemble de données compilées en valeurs hexadécimales stockées 
+								dans un boîtier unique que l’on appelle le calculateur.<br> 
+								Ce boîtier est le système de gestion moteur,
+								il permet de réguler:<br><br> l’allumage, l’injection, la pression de turbo,
+								et bien d’autres valeurs qui ont été définies par le constructeur.
+							</p>
+							<p class="content-main">
+								MCVPerformance optimise la gestion de votre moteur en définissant des nouvelles données dans
+								votre calculateur qui sont ensuite étalonées sur banc de puissance.
+							</p>
+					  </div>
+				  </section>
+				  <section class="section-two">
+					  <div class="container">
+						  <h2 class="title-picto">Comment nous procédons :</h2>
+						  <div class="container-picto d-flex justify-content-between">
+							  <div class="picto bg-light p-4 d-flex flex-column justify-content-between align-items-center">
+								  <img class="w-75" src="/img/picto-etape1.png" alt="image étape 1 reprogrammation">
+								  <h2>Etape 1</h2>
+								  <p class="picto-content">Lecture du calculateur</p>
+								</div>
+							  <div class="picto bg-light p-4 d-flex flex-column justify-content-between align-items-center">
+									<img class="w-75" src="/img/picto-etape2.png" alt="image étape 1 reprogrammation">
+									<h2>Etape 2</h2>
+									<p class="picto-content">Copie du fichier d'origine</p>
+								</div>
+								<div class="picto bg-light p-4 d-flex flex-column justify-content-between align-items-center">
+									<img class="w-75" src="/img/picto-etape3.png" alt="image étape 1 reprogrammation">
+									<h2>Etape 3</h2>
+									<p class="picto-content">Modification du fichier</p>
+								</div>
+								<div class="picto bg-light p-4 d-flex flex-column justify-content-between align-items-center">
+									<img class="w-75" src="/img/picto-etape4.png" alt="image étape 1 reprogrammation">
+									<h2>Etape 4</h2>
+									<p class="picto-content">Ecriture du fichier modifié</p>
+								</div>
+						  </div>
+					  </div>
+				  </section>
+				  
+				</main>
+			</div>
+			<%- include ('partials/footer') %>
+		</div>
+</body>
+</html>

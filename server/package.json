@@ -1,0 +1,62 @@
+{
+  "name": "mcvperformance-adminjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2-runtime start ecosystem.config.js --env production --deep-monitoring",
+    "dev": "pm2 start ecosystem.config.js --env development",
+    "app": "node index.js",
+    "css": "npx tailwindcss -i ./public/css/input.css -o ./public/css/style.css --watch",
+    "compil": "cd public/js/ && browserify main.js > bundle.js",
+    "stop": "pm2 stop all",
+    "deploy": "db-migrate up database.json -e prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joris-villet/new-mcvperformance.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joris-villet/new-mcvperformance/issues"
+  },
+  "homepage": "https://github.com/joris-villet/new-mcvperformance#readme",
+  "dependencies": {
+    "@adminjs/express": "^5.0.0",
+    "@adminjs/sequelize": "^3.0.0",
+    "adminjs": "^6.2.3",
+    "axios": "^0.26.1",
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "db-migrate": "^0.11.13",
+    "db-migrate-pg": "^1.2.2",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-formidable": "^1.2.0",
+    "express-session": "^1.17.3",
+    "flowbite": "^1.5.3",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "node-cache": "^5.1.2",
+    "nodemailer": "^6.7.3",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "pm2": "^5.2.0",
+    "sequelize": "^6.23.0",
+    "serve-static": "^1.15.0",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "browserify": "^17.0.0",
+    "dotenv": "^16.0.2",
+    "edit-file": "^0.3.0",
+    "jquery": "^3.6.0",
+    "nodemon": "^2.0.15",
+    "postcss": "^8.4.8",
+    "tailwindcss": "^3.0.23"
+  }
+}

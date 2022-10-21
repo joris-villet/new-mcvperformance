@@ -1,0 +1,26 @@
+
+<div class="module">
+  <h2 class="title-year">Choississez une année</h2>
+  <div class="module-content">
+    <div class="info_model cellule">
+      <div class="logo">
+        <img 
+          src="/img/logo-<%= brand.name %>.png" 
+          alt="Logo de la marque <%= brand.name %>" 
+          width="<%= brand.width %>" 
+          height="auto">
+      </div>
+      <h2 class="info_title_model"><%= model.name %></h2>
+    </div>    
+    <% for (const year of years) { %>
+      <a
+         class="cellule" 
+         href="/reprogrammation/<%= brand.id %>/<%= brand.name %>/<%= model.id %>/<%= model.name.split(" / ").join("-").split(" ").join("-").split("/").join("-")%>/<%= year.id %>/<%= year.name.split("/").join("-").split(" > ").join("-").split(" ").join("-").split('->...').join('') %>"
+       >
+        <%= year.name %> 
+      </a>
+    <% } %>
+  </div>
+</div>
+
+

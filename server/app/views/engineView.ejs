@@ -1,0 +1,25 @@
+<%- include('partials/head', { title: title }) %>
+  
+<body>
+  <div class="main-card">
+    <%- include ('partials/header') %> 
+    <div class="bg">
+      <%- include ('partials/nav') %> 
+      <main>
+        <div class="container">
+          <section class="container__module">
+            <%- include ('./partials/module_models') %> 
+            <%- include ('./partials/module_years') %> 
+            <%- include ('./partials/module_engines') %> 
+          </section>
+        </div>
+      </main>
+    </div>
+    <%- include ('partials/footer') %> 
+  </div>
+</body>
+</html>
+
+
+
+

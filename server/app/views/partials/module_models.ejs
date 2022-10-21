@@ -1,0 +1,30 @@
+
+<div class="module">
+
+  <h2 class="title-model">Choississez un modèle</h2>
+
+  <div class="module-content">
+    <div class="info_model cellule">
+      <div class="logo">
+        <img 
+          src="/img/logo-<%= brand.name %>.png" 
+          alt="Logo de la marque <%= brand.name %>" 
+          width="<%= brand.width %>" 
+          height="auto"
+        >
+      </div>
+      <h2 class="info_title_model"><%= brand.name %></h2>
+    </div>         
+    <% for (const model of models) { %>
+      <a 
+        class="cellule" 
+        href="/reprogrammation/<%= brand.id %>/<%= brand.name %>/<%= model.id %>/<%= model.name.split(" / ").join("-").split(" ").join("-").split("/").join("-") %>"
+        >
+        <%= model.name %> 
+      </a>
+    <% } %>
+ </div>
+</div>
+
+
+

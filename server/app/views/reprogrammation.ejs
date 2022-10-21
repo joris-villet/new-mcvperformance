@@ -1,0 +1,32 @@
+<%- include('partials/head', { title: title }) %>
+
+  <body>
+    <div class="main-card">
+      <%- include ('partials/header') %>
+      <%- include ('partials/nav') %>
+        <div class="bg">
+          <main>
+            <section class="container-reprog container">
+              <header>
+                <h1 class="title-reprog text-center">Choississez une marque</h1>
+              </header>
+
+              <div class="container__logo row">
+             
+                  <% for(const brand of brands) { %>
+                    <%- include ('components/Brand', { brandId: brand.id, brandName: brand.name, brandWidth: brand.width }) %>
+                   <% } %>
+              
+              </div>
+
+            </section>
+          </main>
+        </div>
+        <%- include ('partials/footer') %>
+    </div>
+
+  </body>
+  </html>
+
+
+ 
